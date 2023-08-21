@@ -539,22 +539,22 @@
         } else {
             quantity.classList.remove("is-invalid");
         }
-        var importPrice = document.getElementById("importPrice");
-        if (importPrice.value <= 1000 || importPrice == null) {
-            importPrice.classList.add("is-invalid");
-            valid = false;
-            formErrorMessage.innerHTML += "Giá thêm không hợp lệ.<br>";
-        } else {
-            importPrice.classList.remove("is-invalid");
-        }
-        var price = document.getElementById("price");
-        if (price.value <= importPrice || price == null) {
-            price.classList.add("is-invalid");
-            valid = false;
-            formErrorMessage.innerHTML += "Giá bán không thể nhỏ hơn hoặc bằng giá thêm.<br>";
-        } else {
-            price.classList.remove("is-invalid");
-        }
+        // var importPrice = document.getElementById("importPrice");
+        // if (importPrice.value <= 1000 || importPrice == null) {
+        //     importPrice.classList.add("is-invalid");
+        //     valid = false;
+        //     formErrorMessage.innerHTML += "Giá thêm không hợp lệ.<br>";
+        // } else {
+        //     importPrice.classList.remove("is-invalid");
+        // }
+        // var price = document.getElementById("price");
+        // if (price.value <= importPrice || price == null) {
+        //     price.classList.add("is-invalid");
+        //     valid = false;
+        //     formErrorMessage.innerHTML += "Giá bán không thể nhỏ hơn hoặc bằng giá thêm.<br>";
+        // } else {
+        //     price.classList.remove("is-invalid");
+        // }
         var importDate = document.getElementById("importDate");
         if (importDate.value == null) {
             importDate.classList.add("is-invalid");
