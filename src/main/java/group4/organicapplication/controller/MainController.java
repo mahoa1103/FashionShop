@@ -46,6 +46,9 @@ public class MainController {
     @Autowired private OrderDetailService orderDetailService;
 
     @Autowired private ImportBillService importBillService;
+
+    @Autowired
+    private SupplierService supplierService;
     @ModelAttribute("loggedInUser")
     public User loggedInUser(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -56,14 +59,17 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String showHomePage(@RequestParam(value = "searchProductName", required = false)String searchProductName,Model model){
+    public String showHomePage(@RequestParam(value = "supplierID", required = false) Integer supplierID,
+                               @RequestParam(value = "searchProductName", required = false)String searchProductName,Model model){
         List<Category> categoryList = categoryService.listCategory();
         model.addAttribute(("categoryList"),categoryList);
 
         List<Product> productList;
         if (searchProductName != null && !searchProductName.isEmpty()) {
             productList = selectProductService.findProductByName(searchProductName);
-        } else {
+        } else if(supplierID !=null && supplierID !=0) { // lọc theo nhà cung cấp
+            productList = productService.getProductsBySupplierId(supplierID);
+        }else {
             // Nếu không có tên để tìm kiếm, hiển thị tất cả sản phẩm
             productList = selectProductService.selectAll();
         }
@@ -71,6 +77,9 @@ public class MainController {
         List<CartItem> cartItems = cartService.getCartItems();
         int totalQuantity = cartService.sumQuantity(cartItems);
         model.addAttribute("totalQuantity", totalQuantity);
+
+        List<Supplier> suppliers = supplierService.getAllSuppliers();
+        model.addAttribute("suppliers", suppliers);
 
         return "client/home";
     }

@@ -34,7 +34,7 @@
         }
 
         li.active a{
-            background-color: #5CB85C !important;
+            background-color: #00BBFF !important;
             color: white !important;
         }
 
@@ -54,7 +54,7 @@
 
         a.active {
             border: 0;
-            border-bottom: #5CB85C 2px solid;
+            border-bottom: #00BBFF 2px solid;
             color: black;
         }
 
@@ -83,7 +83,7 @@
          }
          a{
              text-decoration: none;
-             color: #5CB85C;
+             color: #00BBFF;
          }
     </style>
 </head>
@@ -96,7 +96,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
             <a class="navbar-brand" th:href="@{/admin}"><img
-                    src="https://img.freepik.com/premium-vector/organic-icon-100-percent-organic-product-label_349999-1003.jpg?w=2000"
+                    src="https://phuongnam24h.com/img_data/images/cac-mau-logo-shop-quan-ao-thoi-trang-dep-va-tinh-te.jpg"
                     alt="brand_icon" width="100"></a>
             <div class="collapse navbar-collapse ms-3" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto">
@@ -162,7 +162,7 @@
 <div class="px-5">
     <div class="row align-middle mt-4 mb-4">
         <div class="col-2" id="manage">
-            <h4 style="color: #5CB85C;">Quản lý tài khoản</h4>
+            <h4 style="color: #00BBFF;">Quản lý tài khoản</h4>
         </div>
 <!--        <div class="col-5" id="search">-->
 <!--            <form class="d-flex" role="search">-->
@@ -183,16 +183,19 @@
 
         <div class="col-8 text-end" id="btnAdd">
             <div class="d-flex float-end">
-                <button style="background-color: #5CB85C; color:white;vertical-align: middle;" type="button"
-                        class="btn btn-success shadow-sm border-0 btnThemTaiKhoan" data-bs-toggle="modal"
-                        data-bs-target="#taiKhoanModal">
-                    Thêm mới<i style="font-size: 23px; vertical-align: middle;"
-                                class="fa-solid fa-square-plus ms-3"></i></button>
                 <div id="btnBlackList" class="ms-3">
                     <a th:href="@{/admin/list-blacklist-account}">
                         <button type="button" class="btn btn-outline-secondary">Thùng rác<i class="fa-solid fa-trash-can ms-3"></i></button>
                     </a>
                 </div>
+                <div class="ms-3">
+                    <button style="background-color: #00BBFF; color:white;vertical-align: middle;" type="button"
+                            class="btn btn-success shadow-sm border-0 btnThemTaiKhoan" data-bs-toggle="modal"
+                            data-bs-target="#taiKhoanModal">
+                        Thêm mới<i style="font-size: 23px; vertical-align: middle;"
+                                    class="fa-solid fa-square-plus ms-3"></i></button>
+                </div>
+
             </div>
 
         </div>
@@ -231,6 +234,56 @@
     <ul class="pagination">
     </ul>
 </div>
+<footer>
+    <div class="row" style="background-color: #333; color:white; padding: 15px 200px;">
+        <div class="col-6">
+            <div class="title-footer"><span>Giới thiệu</span></div>
+            <hr>
+            <p>
+                Bạn có thể thoải mái mua sắm thời trang cao cấp hay thời trang hàng hiệu và thậm chí cả thời trang cao cấp Việt Nam tại<i> FASHION</i>.
+                Đa dạng các mẫu mã, loại chủng loại và cả giá cả, bạn sẽ có nhiều lựa chọn cho phong cách thời trang của riêng mình.
+                Đừng bỏ lỡ những đợt giảm giá của chúng tôi để mua sắm cho mình những deal hot nhất mùa này.
+            </p>
+            <p>
+                <i class="fa fa-phone"></i> <span class="margin-left-md me-3">0935708386</span>
+                <i class="fa fa-envelope margin-left-xl"></i> <span class="margin-left-md">fashion@gmail.com
+          </span>
+            </p>
+            <ul class="list-inline d-flex">
+                <li><a href="#">Quyền riêng tư</a></li>
+                <li class="mx-3"><a href="#">Điều khoản</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+
+        </div>
+        <div class="col-3">
+            <div class="title-footer"><span>Phương thức thanh toán</span></div>
+            <hr>
+            <p>Hỗ trợ thanh toán qua VNQR-Pay, Paypal, Online Banking và các loại thẻ tín dụng</p>
+            <img class="img-responsive" src="https://misolhouse.com/themes/default/shop/assets//images/payment-methods.png" alt="Payment Methods" width="250">
+
+
+
+        </div>
+        <div class="col-3">
+            <div class="title-footer"><span>Theo dõi</span></div>
+            <hr>
+            <p>Theo dõi trực tiếp các trang của chúng tôi trên mạng xã hội</p>
+            <ul class="follow-us d-flex p-0">
+                <li class="me-3"><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row bg-dark text-white" style="height: 50px; padding:15px 200px">
+        <div class="copyright line-height-lg col">
+            &copy; 2023 FASHION
+        </div>
+        <div class="col">Dịch vụ giao hàng tận nơi - Cam kết đảm bảo chất lượng  </div>
+    </div>
+
+</footer>
 
 <!-- MODAL ADD USER -->
 <div class="row col-md-9">
@@ -304,54 +357,6 @@
         </div>
     </form>
 </div>
-<footer>
-    <div class="row" style="background-color: #333; color:white; padding: 15px 200px;">
-        <div class="col-6">
-            <div class="title-footer"><span>Giới thiệu</span></div>
-            <hr>
-            <p>
-                ORGANIC - Chuyên cung cấp tất cả các mặt hàng rau củ quả sạch, không chất bảo quản, an toàn cho sức khoẻ, đáp ứng nhu cầu của tất cả khách hàng.
-            </p>
-            <p>
-                <i class="fa fa-phone"></i> <span class="margin-left-md me-3">0935708386</span>
-                <i class="fa fa-envelope margin-left-xl"></i> <span class="margin-left-md">vegetablestore@gmail.com
-          </span>
-            </p>
-            <ul class="list-inline d-flex">
-                <li><a href="#">Quyền riêng tư</a></li>
-                <li class="mx-3"><a href="#">Điều khoản</a></li>
-                <li><a href="#">Liên hệ</a></li>
-            </ul>
-
-        </div>
-        <div class="col-3">
-            <div class="title-footer"><span>Phương thức thanh toán</span></div>
-            <hr>
-            <p>Hỗ trợ thanh toán qua VNQR-Pay, Paypal, Online Banking và các loại thẻ tín dụng</p>
-            <img class="img-responsive" src="https://misolhouse.com/themes/default/shop/assets//images/payment-methods.png" alt="Payment Methods" width="250">
-
-
-
-        </div>
-        <div class="col-3">
-            <div class="title-footer"><span>Theo dõi</span></div>
-            <hr>
-            <p>Theo dõi trực tiếp các trang của chúng tôi trên mạng xã hội</p>
-            <ul class="follow-us d-flex p-0">
-                <li class="me-3"><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="row bg-dark text-white" style="height: 50px; padding:15px 200px">
-        <div class="copyright line-height-lg col">
-            &copy; 2023 ORGANIC
-        </div>
-        <div class="col">Shop thực phẩm sạch số 1 Đà Nẵng - Luôn tươi ngon mỗi ngày!  </div>
-    </div>
-
-</footer>
 <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script

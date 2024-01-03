@@ -22,7 +22,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query("SELECT p FROM Product p WHERE p.productName like %:searchName% and p.deleted = true ")
     List<Product> findByProductNameDeleted(String searchName);
-    @Query("SELECT p FROM Product p WHERE p.category.categoryID = :categoryID")
+    @Query("SELECT p FROM Product p WHERE p.category.categoryID = :categoryID and p.deleted = false")
     List<Product> findByCategoryId(Integer categoryID);
 
     List<Product> findByProductNameContainingIgnoreCase(String searchProductName);

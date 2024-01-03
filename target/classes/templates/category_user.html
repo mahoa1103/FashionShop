@@ -9,6 +9,84 @@
   <script src="https://kit.fontawesome.com/5a213e1813.js" crossorigin="anonymous"></script>
 </head>
 <style>
+    .listPage {
+        padding: 10px;
+        text-align: center;
+        list-style: none;
+        margin: 0 auto;
+    }
+
+    .listPage li {
+        background-color: white;
+        padding: 10px 20px;
+        display: inline-block;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+
+    .listPage .active {
+        background-color: #00BBFF;
+        color: white;
+    }
+
+
+    .item {
+        background-color: white;
+        text-align: center;
+        border-radius: 10px;
+        border: 1px solid hsl(0, 0%, 71%);
+        margin: 20px 15px;
+        padding: 20px;
+        max-width: 300px;
+        min-width: 300px;
+        max-height: 400px;
+        min-height: 400px;
+    }
+
+    .addCart {
+        width: 100%;
+        height: 35px;
+        border: 0;
+        border-radius: 5px;
+        background-color: #00BBFF;
+        color: black;
+    }
+
+    @keyframes scaleUp {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0.5);
+        }
+    }
+    .product-fly {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        background-size: cover;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 9999;
+        transition: top 1s ease-in-out, left 1s ease-in-out;
+        animation: scaleUp 1s ease-in-out;
+    }
+
+    #search {
+        width: 40%;
+    }
+
+    @media only screen and (max-width: 915px) {
+        #search {
+            width: 66%;
+        }
+
+        #imgBr {
+            width: 70px;
+            margin-left: 10px;
+        }
+    }
     .title-footer{
         font-size: 18px;
     }
@@ -21,63 +99,8 @@
     }
     a{
         text-decoration: none;
-        color: #5CB85C;
+        color: hsl(0, 0%, 71%);
     }
-  .listPage {
-    padding: 10px;
-    text-align: center;
-    list-style: none;
-    margin: 0 auto;
-  }
-
-  .listPage li {
-    background-color: white;
-    padding: 10px 20px;
-    display: inline-block;
-    margin: 0 10px;
-    cursor: pointer;
-  }
-
-  .listPage .active {
-    background-color: #5CB85C;
-    color: white;
-  }
-
-
-  .item {
-    background-color: white;
-    text-align: center;
-    border-radius: 10px;
-    border: 1px solid #5CB85C;
-    margin: 20px 15px;
-    padding: 20px;
-    max-width: 180px;
-    min-width: 180px;
-  }
-
-  .addCart {
-    width: 100%;
-    height: 35px;
-    border: 0;
-    border-radius: 5px;
-    background-color: #5CB85C;
-    color: white;
-  }
-
-  #search {
-    width: 40%;
-  }
-
-  @media only screen and (max-width: 915px) {
-    #search {
-      width: 66%;
-    }
-
-    #imgBr {
-      width: 70px;
-      margin-left: 10px;
-    }
-  }
 </style>
 <body>
 <!-- create navigation bar ( header) -->
@@ -87,13 +110,13 @@
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" th:href="@{/}"><img id="imgBr"
-                                                src="https://img.freepik.com/premium-vector/organic-icon-100-percent-organic-product-label_349999-1003.jpg?w=2000"
-                                                alt="brand_icon" width="100px"></a>
+      <a class="navbar-brand" th:href="@{/}"><img id="imgBr"
+                                                  src="https://phuongnam24h.com/img_data/images/cac-mau-logo-shop-quan-ao-thoi-trang-dep-va-tinh-te.jpg"
+                                                  alt="brand_icon" width="100px"></a>
     <form class="d-flex" id="search" role="search" th:action="@{/}" method="get">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
              name="searchProductName">
-      <button style="background-color: #5CB85C; color:white;" class="btn btn-outline-success border-0"
+      <button style="background-color: #00BBFF; color:white;" class="btn btn-outline-success border-0"
               type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
 
@@ -151,45 +174,47 @@
 </nav>
 
 
-<div style="padding: 20px 16%;">
-  <h4 th:object="${category}">[[*{categoryName}]]</h4>
-  <hr>
-  <div class="text-center">
-    <div class="row list">
-        <th:block th:each="product:${productByCategory}">
-        <div class="col item">
-          <a th:href="@{'/productInfoUser/' + ${product.productID}}"><img th:src="@{${product.getPhotosImagePath}}" height="100" width="100" title="ảnh"></img>
-          </a>
-          <h6>[[${product.productName}]]</h6>
-          <div style="position: sticky; top:100%;">
-            <p><span>[[${#numbers.formatDecimal(product.price, 1 , 'POINT', 0 , 'DEFAULT')}]] ₫</span> / <span>[[${product.unit}]]</span></p>
-            <button class="addCart">Thêm vào giỏ</button>
-          </div>
+    <div style="padding: 0 10%;">
+      <h4 th:object="${category}">[[*{categoryName}]]</h4>
+      <hr>
+      <div class="text-center">
+        <div class="row list">
+            <th:block th:each="product:${productByCategory}">
+            <div class="col item">
+              <a th:href="@{'/productInfoUser/' + ${product.productID}}"><img th:src="@{${product.getPhotosImagePath}}" height="250" width="200" title="ảnh"></img>
+              </a>
+              <h6>[[${product.productName}]]</h6>
+              <div style="position: sticky; top:100%;">
+                <p><span>[[${#numbers.formatDecimal(product.price, 1 , 'POINT', 0 , 'DEFAULT')}]] VNĐ</span> / <span>[[${product.unit}]]</span></p>
+                <button class="addCart">Thêm vào giỏ</button>
+              </div>
+            </div>
+          </th:block>
+
         </div>
-      </th:block>
-
+      </div>
     </div>
-  </div>
-</div>
 
-<div style="width:100%;">
-  <ul class="listPage">
-    <li class="active">1</li>
-    <li>2</li>
-    <li>3</li>
-  </ul>
-</div>
+    <div style="width:100%;">
+      <ul class="listPage">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
 <footer>
     <div class="row" style="background-color: #333; color:white; padding: 15px 200px;">
         <div class="col-6">
             <div class="title-footer"><span>Giới thiệu</span></div>
             <hr>
             <p>
-                ORGANIC - Chuyên cung cấp tất cả các mặt hàng rau củ quả sạch, không chất bảo quản, an toàn cho sức khoẻ, đáp ứng nhu cầu của tất cả khách hàng.
+                Bạn có thể thoải mái mua sắm thời trang cao cấp hay thời trang hàng hiệu và thậm chí cả thời trang cao cấp Việt Nam tại<i> FASHION</i>.
+                Đa dạng các mẫu mã, loại chủng loại và cả giá cả, bạn sẽ có nhiều lựa chọn cho phong cách thời trang của riêng mình.
+                Đừng bỏ lỡ những đợt giảm giá của chúng tôi để mua sắm cho mình những deal hot nhất mùa này.
             </p>
             <p>
                 <i class="fa fa-phone"></i> <span class="margin-left-md me-3">0935708386</span>
-                <i class="fa fa-envelope margin-left-xl"></i> <span class="margin-left-md">vegetablestore@gmail.com
+                <i class="fa fa-envelope margin-left-xl"></i> <span class="margin-left-md">fashion@gmail.com
           </span>
             </p>
             <ul class="list-inline d-flex">
@@ -221,17 +246,18 @@
     </div>
     <div class="row bg-dark text-white" style="height: 50px; padding:15px 200px">
         <div class="copyright line-height-lg col">
-            &copy; 2023 ORGANIC
+            &copy; 2023 FASHION
         </div>
-        <div class="col">Shop thực phẩm sạch số 1 Đà Nẵng - Luôn tươi ngon mỗi ngày!  </div>
+        <div class="col">Dịch vụ giao hàng tận nơi - Cam kết đảm bảo chất lượng  </div>
     </div>
 
 </footer>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <script>
   let thisPage = 1;
-  let limit = 10;
+  let limit = 12;
   let list = document.querySelectorAll('.list .item');
 
   function loadItem() {

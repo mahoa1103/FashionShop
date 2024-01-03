@@ -24,7 +24,7 @@
     }
     a{
         text-decoration: none;
-        color: #5CB85C;
+        color: #00BBFF;
     }
     ul>li {
         margin: 0 10px;
@@ -33,7 +33,7 @@
         background-color: white;
         text-align: center;
         border-radius: 10px;
-        border: 1px solid #5CB85C;
+        border: 1px solid #00BBFF;
         margin: 0 5% 15px 5%;
         padding: 15px;
         max-width: 160px;
@@ -44,7 +44,7 @@
         height: 35px;
         border: 0;
         border-radius: 5px;
-        background-color: #5CB85C;
+        background-color: #00BBFF;
         color: white;
     }
     .listPage {
@@ -63,7 +63,7 @@
     }
 
     .listPage .active {
-        background-color: #5CB85C;
+        background-color: #00BBFF;
         color: white;
     }
     .counter {
@@ -97,7 +97,7 @@
     }
     .active {
         border: 0;
-        border-bottom: #5CB85C 2px solid;
+        border-bottom: #00BBFF 2px solid;
         color: black;
     }
 </style>
@@ -110,7 +110,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
             <a class="navbar-brand" th:href="@{/}"><img
-                    src="https://img.freepik.com/premium-vector/organic-icon-100-percent-organic-product-label_349999-1003.jpg?w=2000"
+                    src="https://phuongnam24h.com/img_data/images/cac-mau-logo-shop-quan-ao-thoi-trang-dep-va-tinh-te.jpg"
                     alt="brand_icon" width="100"></a>
             <div class="collapse navbar-collapse ms-3" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto">
@@ -159,7 +159,7 @@
         <div class="px-4 pb-3">
             <form class="d-flex" role="search" th:action="@{/admin/sale}">
                 <input class="form-control me-2" type="search" placeholder="Tìm sản phẩm..." aria-label="Search" name="searchProductName">
-                <button style="background-color: #5CB85C; color:white;" class="btn btn-outline-success border-0"
+                <button style="background-color: #00BBFF; color:white;" class="btn btn-outline-success border-0"
                         type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
@@ -172,7 +172,7 @@
                     </a>
                     <h6>[[${product.productName}]]</h6>
                     <div style="position: sticky; top:100%;">
-                        <p><span>[[${#numbers.formatDecimal(product.price, 1 , 'POINT', 0 , 'DEFAULT')}]] ₫</span> / <span>[[${product.unit}]]</span></p>
+                        <p><span>[[${#numbers.formatDecimal(product.price, 1 , 'POINT', 0 , 'DEFAULT')}]] VNĐ</span> / <span>[[${product.unit}]]</span></p>
                         <button class="addCart" th:attr="onclick=|addToCart('${product.productID}', '${product.productName}', 1, ${product.price},'${product.img}', ${product.quantity})|">Thêm vào giỏ</button>
                     </div>
                 </div>
@@ -215,8 +215,8 @@
                         <span class="up" th:attr="onclick=|increaseCount('${item.productId}', this, '${item.limitQuantity}')|" >+</span>
                     </div>
                 </td>
-                <td th:attr="id='unitPrice' + ${item.productId}" th:text="${#numbers.formatDecimal(item.unitPrice, 1 , 'POINT', 0 , 'DEFAULT')}+ ' ₫'">15.000</td>
-                <td th:attr="id='itemTotalPrice' + ${item.productId}" th:text="${#numbers.formatDecimal(item.totalPrice, 1 , 'POINT', 0 , 'DEFAULT')}+ ' ₫'">15.000</td>
+                <td th:attr="id='unitPrice' + ${item.productId}" th:text="${#numbers.formatDecimal(item.unitPrice, 1 , 'POINT', 0 , 'DEFAULT')}+ ' VNĐ'">15.000</td>
+                <td th:attr="id='itemTotalPrice' + ${item.productId}" th:text="${#numbers.formatDecimal(item.totalPrice, 1 , 'POINT', 0 , 'DEFAULT')}+ ' VNĐ'">15.000</td>
                 <td>
                     <i class="fa-regular fa-trash-can" th:attr="onclick=|removeFromCart('${item.productId}')|" style="cursor: pointer;"></i>
                 </td>
@@ -232,17 +232,17 @@
             </div>
             <div class="row1">
                 <h6>Tạm tính</h6>
-                <p th:text="${#numbers.formatDecimal(totalPrice, 1 , 'POINT', 0 , 'DEFAULT')}+ ' ₫'" th:attr="class='totalPrice'">30000</p>
+                <p th:text="${#numbers.formatDecimal(totalPrice, 1 , 'POINT', 0 , 'DEFAULT')}+ ' VNĐ'" th:attr="class='totalPrice'">30000</p>
             </div>
             <hr>
             <div class="row1">
                 <h6>Thành tiền</h6>
-                <p th:text="${#numbers.formatDecimal(totalPrice, 1 , 'POINT', 0 , 'DEFAULT')}+ ' ₫'" th:attr="class='totalPrice'">30000</p>
+                <p th:text="${#numbers.formatDecimal(totalPrice, 1 , 'POINT', 0 , 'DEFAULT')}+ ' VNĐ'" th:attr="class='totalPrice'">30000</p>
             </div>
         </div>
 
 
-        <button style="background-color: #5CB85C;" class="btn btn-success mt-5 w-100 border-0" onclick="purchaseOrder()">Thanh toán</button>
+        <button style="background-color: #00BBFF;" class="btn btn-success mt-5 w-100 border-0" onclick="purchaseOrder()">Thanh toán</button>
     </div>
 </div>
 
@@ -252,11 +252,13 @@
             <div class="title-footer"><span>Giới thiệu</span></div>
             <hr>
             <p>
-                ORGANIC - Chuyên cung cấp tất cả các mặt hàng rau củ quả sạch, không chất bảo quản, an toàn cho sức khoẻ, đáp ứng nhu cầu của tất cả khách hàng.
+                Bạn có thể thoải mái mua sắm thời trang cao cấp hay thời trang hàng hiệu và thậm chí cả thời trang cao cấp Việt Nam tại<i> FASHION</i>.
+                Đa dạng các mẫu mã, loại chủng loại và cả giá cả, bạn sẽ có nhiều lựa chọn cho phong cách thời trang của riêng mình.
+                Đừng bỏ lỡ những đợt giảm giá của chúng tôi để mua sắm cho mình những deal hot nhất mùa này.
             </p>
             <p>
                 <i class="fa fa-phone"></i> <span class="margin-left-md me-3">0935708386</span>
-                <i class="fa fa-envelope margin-left-xl"></i> <span class="margin-left-md">vegetablestore@gmail.com
+                <i class="fa fa-envelope margin-left-xl"></i> <span class="margin-left-md">fashion@gmail.com
           </span>
             </p>
             <ul class="list-inline d-flex">
@@ -288,9 +290,9 @@
     </div>
     <div class="row bg-dark text-white" style="height: 50px; padding:15px 200px">
         <div class="copyright line-height-lg col">
-            &copy; 2023 ORGANIC
+            &copy; 2023 FASHION
         </div>
-        <div class="col">Shop thực phẩm sạch số 1 Đà Nẵng - Luôn tươi ngon mỗi ngày!  </div>
+        <div class="col">Dịch vụ giao hàng tận nơi - Cam kết đảm bảo chất lượng  </div>
     </div>
 
 </footer>

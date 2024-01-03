@@ -29,7 +29,7 @@ $(document).ready(function() {
 					  taiKhoanRow +='</td>' +
 					                  '<td width="0%">'+'<input type="hidden" id="idTaiKhoan" value=' + taiKhoan.id + '>'+ '</td>'+
 //					                  '<td><button class="btn btn-primary btnCapNhat" >Cập nhật</button></td>' + 
-					                  '<td><button class="btn btn-danger btnXoa" >Xóa</button></td>' +
+					                  '<td><button class="btn btn-outline-danger btnXoa" ><i class="fa-solid fa-trash-can"></i></button></td>' +
 					                  '</tr>';
 					$('.taiKhoanTable tbody.list').append(taiKhoanRow);
 

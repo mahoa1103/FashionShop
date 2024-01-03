@@ -23,7 +23,7 @@
         }
         a{
             text-decoration: none;
-            color: #5CB85C;
+            color: #00BBFF;
         }
          span.error{
             color: red;
@@ -48,7 +48,7 @@
         }
 
         li.active a{
-            background-color: #5CB85C !important;
+            background-color: #00BBFF !important;
             color: white !important;
         }
 
@@ -68,7 +68,7 @@
 
         a.active {
             border: 0;
-            border-bottom: #5CB85C 2px solid;
+            border-bottom: #00BBFF 2px solid;
             color: black;
         }
 
@@ -96,7 +96,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" th:href="@{/admin}"><img
-                src="https://img.freepik.com/premium-vector/organic-icon-100-percent-organic-product-label_349999-1003.jpg?w=2000"
+                src="https://phuongnam24h.com/img_data/images/cac-mau-logo-shop-quan-ao-thoi-trang-dep-va-tinh-te.jpg"
                 alt="brand_icon" width="100"></a>
         <div class="collapse navbar-collapse ms-3" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto">
@@ -162,13 +162,13 @@
 <div class="px-5">
     <div class="row align-middle mt-4 mb-4">
         <div class="col-6" id="manage">
-            <h4 style="color: #5CB85C;">Quản lý tài khoản đã xoá</h4>
+            <h4 style="color: #00BBFF;">Quản lý tài khoản đã xoá</h4>
         </div>
 
 
         <div class="col text-end" id="btnBack">
             <a th:href="@{/admin/list-account}">
-                <button type="button" class="btn btn-outline-secondary">Quay lại</button>
+                <button type="button" class="btn btn-outline-secondary" style="background-color: #00BBFF;"><i class="fa-solid fa-circle-left me-1"></i> Quay lại</button>
             </a>
         </div>
 
@@ -196,10 +196,10 @@
                     <td>[[${user.address}]]</td>
                     <td>
                         <a class="h4 m-3" th:href="@{'/admin/restore-blacklist-account/' + ${user.id}}">
-                            <button type="button" class="btn btn-primary" >Khôi phục</button>
+                            <button type="button" class="btn btn-primary" ><i class="fa-solid fa-arrow-rotate-left"></i></button>
                         </a>
                         <a class="h4" th:href="@{'/admin/delete-blacklist-account/' + ${user.id}}">
-                            <button type="button" class="btn btn-danger">Xoá</button>
+                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can ms-3"></i></button>
                         </a>
                     </td>
                 </tr>
@@ -219,11 +219,13 @@
             <div class="title-footer"><span>Giới thiệu</span></div>
             <hr>
             <p>
-                ORGANIC - Chuyên cung cấp tất cả các mặt hàng rau củ quả sạch, không chất bảo quản, an toàn cho sức khoẻ, đáp ứng nhu cầu của tất cả khách hàng.
+                Bạn có thể thoải mái mua sắm thời trang cao cấp hay thời trang hàng hiệu và thậm chí cả thời trang cao cấp Việt Nam tại<i> FASHION</i>.
+                Đa dạng các mẫu mã, loại chủng loại và cả giá cả, bạn sẽ có nhiều lựa chọn cho phong cách thời trang của riêng mình.
+                Đừng bỏ lỡ những đợt giảm giá của chúng tôi để mua sắm cho mình những deal hot nhất mùa này.
             </p>
             <p>
                 <i class="fa fa-phone"></i> <span class="margin-left-md me-3">0935708386</span>
-                <i class="fa fa-envelope margin-left-xl"></i> <span class="margin-left-md">vegetablestore@gmail.com
+                <i class="fa fa-envelope margin-left-xl"></i> <span class="margin-left-md">fashion@gmail.com
           </span>
             </p>
             <ul class="list-inline d-flex">
@@ -255,9 +257,9 @@
     </div>
     <div class="row bg-dark text-white" style="height: 50px; padding:15px 200px">
         <div class="copyright line-height-lg col">
-            &copy; 2023 ORGANIC
+            &copy; 2023 FASHION
         </div>
-        <div class="col">Shop thực phẩm sạch số 1 Đà Nẵng - Luôn tươi ngon mỗi ngày!  </div>
+        <div class="col">Dịch vụ giao hàng tận nơi - Cam kết đảm bảo chất lượng  </div>
     </div>
 
 </footer>
