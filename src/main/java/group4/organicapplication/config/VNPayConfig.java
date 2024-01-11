@@ -20,6 +20,7 @@ public class VNPayConfig {
     public static String vnp_HashSecret = "GEEXHMBEOHJOTBPNYMRUZQNLQUCPDAZR";
     public static String vnp_apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
 
+    //giải mã md5
     public static String md5(String message) {
         String digest = null;
         try {
@@ -38,6 +39,7 @@ public class VNPayConfig {
         return digest;
     }
 
+    //giải mã SHa256
     public static String Sha256(String message) {
         String digest = null;
         try {
@@ -58,8 +60,11 @@ public class VNPayConfig {
 
     //Util for VNPAY
     public static String hashAllFields(Map fields) {
+        //Trích xuất và lưu trữ dữ liệu vào list
         List fieldNames = new ArrayList(fields.keySet());
+        //sắp xếp theo giá trị tăng dần
         Collections.sort(fieldNames);
+        //Build hash data
         StringBuilder sb = new StringBuilder();
         Iterator itr = fieldNames.iterator();
         while (itr.hasNext()) {
@@ -91,6 +96,7 @@ public class VNPayConfig {
             byte[] result = hmac512.doFinal(dataBytes);
             StringBuilder sb = new StringBuilder(2 * result.length);
             for (byte b : result) {
+                //chuyển đổi thành chỗi thập lục phân
                 sb.append(String.format("%02x", b & 0xff));
             }
             return sb.toString();

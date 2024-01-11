@@ -18,6 +18,7 @@ public class SimpleAuthenticationSuccessHandler implements AuthenticationSuccess
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
+    //phân quyền
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {

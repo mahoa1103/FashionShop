@@ -117,7 +117,7 @@ public class PurchaseController {
         String phone = (String) emailData.get("phone");
         String address = (String) emailData.get("address");
         String totalPrice = (String) emailData.get("totalPrice");
-        int fullPrice = Integer.parseInt(totalPrice) + 5000;
+        int fullPrice = Integer.parseInt(totalPrice) + 5000;// Phí vận chuyển
 
         List<Map<String, Object>> cartItems = (List<Map<String, Object>>) emailData.get("cartItems");
 
@@ -143,16 +143,16 @@ public class PurchaseController {
 
             for (Map<String, Object> cartItem : cartItems) {
                 emailContent.append("Tên sản phẩm: ").append(cartItem.get("productName")).append("<br>");
-                emailContent.append("<img src='https://shin308.github.io/Vegetables-store/src/main/resources/static/images/"+ cartItem.get("productId") + '/').append(cartItem.get("imageProduct")).append("' width='100' height='100'>").append("<br>");
+                emailContent.append("<img src='https://mahoa1103.github.io/FashionShop/src/main/resources/static/images/"+ cartItem.get("productId") + '/').append(cartItem.get("imageProduct")).append("' width='100' height='100'>").append("<br>");
                 emailContent.append("Số lượng: ").append(cartItem.get("quantity")).append("<br>");
-                emailContent.append("Thành tiền: ").append(cartItem.get("totalPrice")).append(" đồng").append("<br>");
+                emailContent.append("Thành tiền: ").append(cartItem.get("totalPrice")).append(" VNĐ").append("<br>");
                 emailContent.append("<hr>");
             }
-            emailContent.append("<b>Tổng tiền: </b>" + totalPrice +" đồng").append("<br>");
-            emailContent.append("<b>Phí vận chuyển:</b> 5000" +" đồng</b>").append("<br>");
-            emailContent.append("<b>Tổng thanh toán: </b> " + fullPrice +" đồng").append("<br>");
+            emailContent.append("<b>Tổng tiền: </b>" + totalPrice +" VNĐ").append("<br>");
+            emailContent.append("<b>Phí vận chuyển:</b> 5000" +" VNĐ</b>").append("<br>");
+            emailContent.append("<b>Tổng thanh toán: </b> " + fullPrice +" VNĐ").append("<br>");
             emailContent.append("<br>");
-            emailContent.append("Vegetables store cảm ơn bạn đã mua hàng!");
+            emailContent.append("Fashion Shop cảm ơn bạn đã mua hàng!");
 
             message.setText(emailContent.toString(), true);
             javaMailSender.send(mimeMessage);

@@ -33,6 +33,7 @@ $(document).ready(function() {
 					                  '</tr>';
 					$('.taiKhoanTable tbody.list').append(taiKhoanRow);
 
+
 				});
 
 				if(result.totalPages >= 1 ){

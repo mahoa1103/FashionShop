@@ -93,20 +93,24 @@ public class PaymentController {
 
     @GetMapping("/vnpay-payment")
     public String GetMapping(HttpServletRequest request, Model model) throws ParseException {
+        //xử lý thông tin thanh toán trong yêu cầu và trả về mã trạng thái thanh toán.
         int paymentStatus =paymentService.orderReturn(request);
 
+        //Trích xuất các thông số khác nhau từ yêu cầu liên quan đến thanh toán
         String orderInfo = request.getParameter("vnp_OrderInfo");
         String paymentTime = request.getParameter("vnp_PayDate");
         String transactionId = request.getParameter("vnp_TransactionNo");
         String totalPriceStr = request.getParameter("vnp_Amount");
         int totalPrice = Integer.parseInt(totalPriceStr) / 100;
 
+        //Cập nhật trạng thái đơn hàng
         Orders order = orderService.findById(Long.parseLong(orderInfo));
-        if(paymentStatus == 1) {
+        if(paymentStatus == 1) {    // thanh toán thành công
             order.setPaid(true);
             orderService.save(order);
         }
 
+        //Định dạng ngày
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyyMMddHHmmss");
         Date date = inputFormat.parse(paymentTime);
 
@@ -118,6 +122,7 @@ public class PaymentController {
         model.addAttribute("paymentTime", formattedDate);
         model.addAttribute("transactionId", transactionId);
 
+        // nếu paymentstatus khác 1 thì thanh toán thất bại
         return paymentStatus == 1 ? "ordersuccess" : "orderfail";
 
     }

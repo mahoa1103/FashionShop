@@ -399,7 +399,8 @@
             //update ui
             let unitPrice = parseInt(unitPriceDOM.innerText.replace(".", ""));
             let itemTotalPrice = new Intl.NumberFormat('vi-VN', config).format(quantity * unitPrice)
-            itemTotalPriceDOM.innerText = itemTotalPrice.toString();
+            const convertedResult = itemTotalPrice.replace('₫', 'VNĐ');
+            itemTotalPriceDOM.innerText = convertedResult.toString() ;
 
             //update total quantity, total price
             updateTotal()
@@ -426,7 +427,8 @@
             let unitPrice = parseInt(unitPriceDOM.innerText.replace(".", ""));
             let itemTotalPrice = new Intl.NumberFormat('vi-VN', config).format(quantity * unitPrice)
 
-            itemTotalPriceDOM.innerText = itemTotalPrice.toString();
+            const convertedResult = itemTotalPrice.replace('₫', 'VNĐ');
+            itemTotalPriceDOM.innerText = convertedResult.toString() ;
 
             //update total quantity, total price
             updateTotal()
@@ -465,7 +467,8 @@
                     //update ui
                     let unitPrice = parseInt(unitPriceDOM.innerText.replace(".", ""));
                     let itemTotalPrice = new Intl.NumberFormat('vi-VN', config).format(quantity * unitPrice)
-                    itemTotalPriceDOM.innerText = itemTotalPrice.toString();
+                    const convertedResult = itemTotalPrice.replace('₫', 'VNĐ');
+                    itemTotalPriceDOM.innerText = convertedResult.toString() ;
 
                     updateTotal()
                 } else {
@@ -527,7 +530,9 @@
 
         totalQuantityDOM.innerText = totalQuantity.toString();
         totalPriceDOMs.forEach((totalPriceDOM) => {
-            totalPriceDOM.innerText =  new Intl.NumberFormat('vi-VN', config).format(totalPrice);
+            let itemTotalPrice = new Intl.NumberFormat('vi-VN', config).format(totalPrice);
+            const convertedResult = itemTotalPrice.replace('₫', 'VNĐ');
+            totalPriceDOM.innerText = convertedResult;
         });
 
         //update cartbadge

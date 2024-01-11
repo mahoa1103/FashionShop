@@ -228,11 +228,13 @@
             <div class="col">
               <h6 class="mb-4">Giá bán</h6>
               <h6 class="mb-4">Tình trạng</h6>
+              <h6 class="mb-4">Màu sắc</h6>
               <h6 class="mb-4">Số lượng</h6>
             </div>
             <div class="col" style="text-align: right;">
               <p class="mb-4">[[*{#numbers.formatDecimal(price, 1 , 'POINT', 0 , 'DEFAULT')}]] VNĐ</p>
               <p class="mb-4" id="checkQuantity">Còn hàng</p>
+              <p class="mb-4">[[*{unit}]]</p>
               <div class="mb-4">
                 <div class="counter">
                   <span class="down" onClick='decreaseCount(event, this)'>-</span>
@@ -242,11 +244,13 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-success border-0" style="background-color:#00BBFF; float:right;" th:attr="onclick=|addToCart('${productInfo.productID}', '${productInfo.productName}',${productInfo.price},'${productInfo.img}', ${productInfo.quantity})|"><i class="fa-solid fa-basket-shopping"></i> Thêm vào
-            giỏ
-          </button>
+            <button class="btn btn-success border-0" style="background-color:#00BBFF; float:right;" th:attr="onclick=|addToCart('${productInfo.productID}', '${productInfo.productName}',${productInfo.price},'${productInfo.img}', ${productInfo.quantity})|">
+              <i class="fa-solid fa-basket-shopping"></i> Thêm vào giỏ
+            </button>
 
-
+            <a th:href="@{'http://127.0.0.1:5000/'+${productInfo.productID}}">
+              <button class="btn btn-success border-0" style="background-color:#00BBFF; float:left">Thử Đồ</button>
+            </a>
         </div>
       </div>
 
